@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+echo "# 🎵 JAI Sounds - Curaduría Musical Auténtica
 
-## Getting Started
+## Portal de exploración musical anti-algoritmo
 
-First, run the development server:
+**Donde el algoritmo nunca te acercaría, nosotros abrimos portales en el tiempo.**
 
-```bash
+### ✨ Características
+
+- 🎧 **Playlists Interactivas**: 20+ playlists curadas con widgets interactivos
+- 🌌 **Proyectos Narrativos**: Spacebound, Caravana en el Desierto
+- 🎨 **Diseño Inmersivo**: Animaciones de portal con Framer Motion
+- 📱 **Mobile-First**: Optimizado para consumo musical móvil
+- 🚀 **Performance**: Next.js 14 con optimizaciones avanzadas
+
+### 🛠️ Tech Stack
+
+- **Framework**: Next.js 14.2.5 con App Router
+- **Lenguaje**: TypeScript con tipado estricto
+- **Estilos**: Tailwind CSS 3.4.6 + CSS Variables
+- **Animaciones**: Framer Motion 11.3.8
+- **Iconos**: Lucide React
+- **Formularios**: React Hook Form
+
+### 🎯 Filosofía
+
+> \"Toda música representa una visión que existe y es válida solo por el hecho de existir\"
+
+JAI Sounds es arqueología sonora para el alma moderna. Un espacio donde se escucha sin juzgar y se aprecia el sonido porque existe.
+
+### 🚀 Desarrollo
+
+\`\`\`bash
+
+# Instalar dependencias
+
+npm install
+
+# Desarrollo local
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Build para producción
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+npm run build
+\`\`\`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 📱 Contacto
 
-## Learn More
+- **WhatsApp**: +56 9 7722 1088
+- **Email**: jai.audio.22@gmail.com
+- **Instagram**: [@jai.sounds](https://www.instagram.com/jai.sounds/)
+- **Spotify**: [Portfolio Musical](https://open.spotify.com/user/12155888039)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+_Hecho con ❤️ para la exploración musical | Santiago, Chile 2025_" > README.md
