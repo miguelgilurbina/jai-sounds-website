@@ -1,151 +1,200 @@
 {
   "site": {
-    "name": "Tu Web En 7 Días",
-    "tagline": "Páginas Web Profesionales en 7 Días",
-    "description": "Transforma tu presencia digital con páginas web profesionales entregadas en tiempo récord"
+    "name": "JAI Sounds",
+    "tagline": "Donde el algoritmo nunca te acercaría, nosotros abrimos portales en el tiempo",
+    "description": "Curaduría musical auténtica. Explora sonidos que transforman, alejándote del ruido comercial.",
+    "url": "https://jaisounds.com",
+    "locale": "es-CL"
   },
-  "contact": {
-    "email": "contacto@tuweben7dias.com",
-    "phone": "+56 9 7722 1088",
-    "whatsapp": "+56977221088",
-    "social": {
-      "instagram": "https://instagram.com/tuweben7dias",
-      "linkedin": "https://linkedin.com/company/tuweben7dias"
+  "header": {
+    "logo": {
+      "type": "image",
+      "src": "/images/jai-sounds-logo.png",
+      "alt": "JAI Sounds - Curaduría Musical"
+    },
+    "navigation": [
+      { "label": "Universo", "href": "#playlists" },
+      { "label": "Proyectos", "href": "#portfolio" },
+      { "label": "Filosofía", "href": "#about" },
+      { "label": "Contacto", "href": "#contact" }
+    ],
+    "cta": {
+      "text": "Consulta Musical",
+      "href": "#contact",
+      "variant": "primary"
     }
   },
   "hero": {
-    "headline": "Tu Página Web Profesional Lista en 7 Días",
-    "subtitle": "Diseño moderno, responsive y optimizado para convertir visitantes en clientes. Perfecto para profesionales y PyMEs que buscan destacar online.",
-    "cta_primary": "Solicitar Mi Página Web",
-    "cta_secondary": "Ver Ejemplos",
-    "features": [
-      "Entrega garantizada en 7 días hábiles",
-      "Diseño 100% responsive",
-      "SEO básico incluido",
-      "Formulario de contacto funcional"
-    ]
+    "headline": "JAI Sounds",
+    "subtitle": "Donde el algoritmo nunca te acercaría, nosotros abrimos portales en el tiempo",
+    "description": "Curador musical con 18+ años explorando sonidos. Desde Eureka disco tienda hasta proyectos narrativos únicos.",
+    "cta": {
+      "primary": {
+        "text": "Explora el Universo Sonoro",
+        "href": "#playlists"
+      },
+      "secondary": {
+        "text": "Ver Filosofía",
+        "href": "#about"
+      }
+    },
+    "background": {
+      "type": "minimal_with_portal_elements",
+      "concept": "Logo icónico sobre base limpia con geometría fluida"
+    }
   },
   "about": {
-    "title": "¿Por Qué Elegirnos?",
-    "subtitle": "Proceso simple, resultados profesionales",
-    "description": "Especializados en crear páginas web que realmente convierten. Nuestro proceso optimizado garantiza entrega rápida sin comprometer la calidad.",
-    "benefits": [
+    "title": "Arqueología Sonora para el Alma Moderna",
+    "bio": "Curador musical con 18+ años explorando sonidos, desde Eureka disco tienda hasta 'Descubriendo con Chocolate'. JAI Sounds es el espacio donde se escucha sin juzgar y se aprecia el sonido porque existe.",
+    "philosophy": "Toda música representa una visión que existe y es válida solo por el hecho de existir. Nuestra misión: ser el puente entre tu proyecto y esos sonidos que el mundo necesita escuchar.",
+    "achievements": [
       {
-        "title": "Proceso Optimizado",
-        "description": "Metodología probada que garantiza entrega en tiempo récord"
+        "title": "24 episodios",
+        "description": "Analizando algoritmos de Spotify en 'Descubriendo con Chocolate'"
       },
       {
-        "title": "Diseño Profesional",
-        "description": "Páginas modernas que reflejan la calidad de tu negocio"
+        "title": "2+ años",
+        "description": "De investigación musical documentada"
       },
       {
-        "title": "Soporte Incluido",
-        "description": "Acompañamiento completo desde el primer día"
+        "title": "20+ playlists",
+        "description": "Curadas en perfil propio como showcase"
+      },
+      {
+        "title": "Proyectos únicos",
+        "description": "Narrativos multimedia como Spacebound"
       }
-    ]
-  },
-  "services": {
-    "title": "¿Qué Incluye Tu Página Web?",
-    "subtitle": "Todo lo que necesitas para empezar",
-    "items": [
-      {
-        "title": "Diseño Responsivo",
-        "description": "Perfecta en computador, tablet y móvil",
-        "icon": "Monitor"
-      },
-      {
-        "title": "SEO Optimizado",
-        "description": "Preparada para aparecer en Google",
-        "icon": "Search"
-      },
-      {
-        "title": "Formulario de Contacto",
-        "description": "Recibe consultas directo a tu email",
-        "icon": "Mail"
-      },
-      {
-        "title": "Carga Rápida",
-        "description": "Optimizada para máxima velocidad",
-        "icon": "Zap"
-      },
-      {
-        "title": "Hosting Incluido",
-        "description": "Un año de alojamiento gratuito",
-        "icon": "Server"
-      },
-      {
-        "title": "Dominio .com",
-        "description": "Tu nombre en internet (opcional)",
-        "icon": "Globe"
-      }
-    ]
-  },
- "process": {
-    "title": "Proceso Simple en 5 Pasos",
-    "steps": [
-      {
-        "number": "01",
-        "title": "Conversación Inicial",
-        "description": "Conocemos tu negocio, necesidades y objetivos específicos para tu página web"
-      },
-      {
-        "number": "02", 
-        "title": "Pago del 50%",
-        "description": "Confirmamos el proyecto con el primer pago y te enviamos el formulario detallado"
-      },
-      {
-        "number": "03",
-        "title": "Desarrollo Inicial", 
-        "description": "Creamos la estructura y diseño base de tu página web"
-      },
-      {
-        "number": "04",
-        "title": "Revisión y Ajustes",
-        "description": "Te mostramos el avance y realizamos hasta 2 rondas de cambios incluidos"
-      },
-      {
-        "number": "05",
-        "title": "Entrega Final",
-        "description": "Recibes tu página web completa, funcional y lista para usar"
-      }
-    ]
-  },
-  "pricing": {
-    "title": "Inversión Transparente",
-    "subtitle": "Un precio, todo incluido",
-    "price": "180,000",
-    "currency": "CLP",
-    "features": [
-      "Diseño profesional personalizado",
-      "Hasta 5 secciones",
-      "Formulario de contacto",
-      "Optimización SEO básica",
-      "Responsive para todos los dispositivos",
-      "1 año de hosting gratuito",
-      "Soporte técnico 30 días",
-      "Entrega garantizada en 7 días"
     ],
-    "payment": {
-      "down_payment": "90,000",
-      "final_payment": "90,000"
-    }
+    "inspiration": "Rick Rubin",
+    "value_proposition": "Guía musical que lleva identidades sonoras a otro nivel"
   },
-  "faq": [
+  "services": [
     {
-      "question": "¿Qué necesito entregar para empezar?",
-      "answer": "Solo necesitas tu logo (si tienes), algunas fotos de tu trabajo o empresa, textos sobre tus servicios, y tus datos de contacto. Te guiamos en todo el proceso."
+      "title": "Curaduría Personalizada",
+      "description": "Playlists curadas según tu mood, proyecto o necesidad específica",
+      "features": [
+        "Arreglo de canciones preseleccionadas",
+        "Exploración basada en mood/emoción",
+        "Ambientación para espacios comerciales",
+        "Soundtracks para proyectos creativos"
+      ],
+      "icon": "Music",
+      "is_featured": true
     },
     {
-      "question": "¿Realmente entregan en 7 días?",
-      "answer": "Sí, garantizamos la entrega en máximo 7 días hábiles desde que recibimos el 50% del pago y todos los materiales necesarios."
+      "title": "Showcase Musical",
+      "description": "Explora playlists ya curadas como demostración del rango y calidad",
+      "features": [
+        "20+ playlists como portfolio",
+        "Diversos géneros y épocas",
+        "Widgets interactivos",
+        "Preview instantáneo"
+      ],
+      "icon": "Radio",
+      "is_featured": false
     },
     {
-      "question": "¿Qué pasa si no me gusta el resultado?",
-      "answer": "Incluimos hasta 2 rondas de revisiones para asegurar que quedes 100% satisfecho con tu página web."
-    },
-    {
-      "question": "¿Incluye el dominio?",
-      "answer": "El hosting está incluido por un año. El dominio .com es opcional por $15.000 adicionales anuales."
+      "title": "Proyectos Narrativos",
+      "description": "Experiencias multimedia que combinan curaduría con storytelling",
+      "features": [
+        "Soundtrack para narrativas",
+        "Arte conceptual incluido",
+        "Experiencias inmersivas",
+        "Portales sonoros únicos"
+      ],
+      "icon": "Headphones",
+      "is_featured": true
     }
-  ]
+  ],
+  "portfolio": {
+    "title": "Portales Sonoros",
+    "subtitle": "Proyectos que demuestran la capacidad de crear universos completos",
+    "cases": [
+      {
+        "title": "Spacebound",
+        "description": "Playlist narrativa que acompaña cuento de ciencia ficción. Una experiencia multimedia inmersiva.",
+        "result": "Portal sonoro hacia las estrellas",
+        "image": "/images/spacebound-concept.jpg",
+        "tags": ["Narrativo", "Sci-Fi", "Inmersivo"],
+        "link": "https://open.spotify.com/playlist/spacebound"
+      },
+      {
+        "title": "Caravana en el Desierto",
+        "description": "Soundtrack para historia de viaje místico. Portal sonoro hacia experiencia narrativa.",
+        "result": "Ambientación perfecta para storytelling",
+        "image": "/images/caravana-concept.jpg",
+        "tags": ["Místico", "Viaje", "Narrativo"],
+        "link": "https://open.spotify.com/playlist/caravana"
+      },
+      {
+        "title": "Universo de Playlists",
+        "description": "20+ playlists que demuestran rango y versatilidad curatorial completa.",
+        "result": "Showcase de capacidades musicales",
+        "image": "/images/playlists-showcase.jpg",
+        "tags": ["Portfolio", "Versatilidad", "Curaduría"],
+        "link": "https://open.spotify.com/user/12155888039"
+      }
+    ]
+  },
+  "playlists": {
+    "title": "Universo de Playlists Interactivas",
+    "subtitle": "Cada playlist es un portal hacia sonidos que el algoritmo jamás te acercaría",
+    "spotify_user": "12155888039",
+    "featured_playlists": [
+      "Spacebound",
+      "Caravana en el Desierto",
+      "Portal Temporal",
+      "Anti-Algoritmo",
+      "Arqueología Sonora"
+    ]
+  },
+  "contact": {
+    "title": "¿Listo para llevar tu identidad musical a otro nivel?",
+    "subtitle": "Conversemos sobre tu proyecto y exploremos juntos el universo sonoro que necesitas",
+    "methods": [
+      {
+        "type": "whatsapp",
+        "label": "WhatsApp",
+        "value": "+56977221088",
+        "primary": true,
+        "description": "Respuesta inmediata"
+      },
+      {
+        "type": "email",
+        "label": "Email",
+        "value": "jai.audio.22@gmail.com",
+        "primary": false,
+        "description": "Para proyectos detallados"
+      },
+      {
+        "type": "meeting",
+        "label": "Reunión Presencial",
+        "value": "Santiago, Chile",
+        "primary": false,
+        "description": "Disponible en Santiago"
+      }
+    ],
+    "social_links": [
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/jai.sounds/",
+        "label": "@jai.sounds"
+      },
+      {
+        "platform": "spotify",
+        "url": "https://open.spotify.com/user/12155888039",
+        "label": "Portfolio Musical"
+      },
+      {
+        "platform": "substack",
+        "url": "https://substack.com/@jaisounds",
+        "label": "Blog Musical"
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "JAI Sounds - Arqueología sonora para el alma moderna",
+    "copyright": "2025 JAI Sounds. Santiago, Chile.",
+    "philosophy": "Entendemos que cada sonido es válido porque existe"
+  }
 }

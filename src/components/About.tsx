@@ -1,175 +1,187 @@
 // src/components/About.tsx
+// src/components/About.tsx
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle, Users, Clock, Award } from "lucide-react";
-import { AboutProps } from "@/lib/types";
+import { Quote, Music2, Disc, Radio, Headphones } from "lucide-react";
 
-export default function About({ data, className = "" }: AboutProps) {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.2,
-      },
+export default function About() {
+  const achievements = [
+    {
+      title: "24 episodios",
+      description:
+        'Analizando algoritmos de Spotify en "Descubriendo con Chocolate"',
+      icon: Radio,
     },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        // ✅ Sin ease - usa default que funciona perfecto
-      },
+    {
+      title: "2+ años",
+      description: "De investigación musical documentada",
+      icon: Music2,
     },
-  };
-
-  const benefitIcons = {
-    "Proceso Optimizado": Clock,
-    "Diseño Profesional": Award,
-    "Soporte Incluido": Users,
-  };
+    {
+      title: "20+ playlists",
+      description: "Curadas en perfil propio como showcase",
+      icon: Disc,
+    },
+    {
+      title: "Proyectos únicos",
+      description: "Narrativos multimedia como Spacebound",
+      icon: Headphones,
+    },
+  ];
 
   return (
-    <section className={`section-padding bg-gradient-about ${className}`}>
-      <div className="container-custom ">
+    <section id="about" className="section-padding bg-white">
+      <div className="container-custom">
+        {/* Header */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          {/* Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--neutral-dark)] mb-6">
-              {data.title}
-            </h2>
-            <p className="text-xl text-[var(--neutral-medium)] max-w-3xl mx-auto">
-              {data.subtitle}
-            </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-[var(--neutral-dark)] mb-6 font-poppins">
+            <span className="text-gradient">Arqueología Sonora</span>
+            <br />
+            para el Alma Moderna
+          </h2>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Bio Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold text-[var(--neutral-dark)] mb-6 font-poppins">
+                La Historia Detrás del Sonido
+              </h3>
+              <p className="text-lg text-[var(--neutral-medium)] leading-relaxed mb-6">
+                Curador musical con <strong>18+ años explorando sonidos</strong>
+                , desde Eureka disco tienda hasta -Descubriendo con Chocolate-.
+                JAI Sounds es el espacio donde se escucha sin juzgar y se
+                aprecia el sonido porque existe.
+              </p>
+              <p className="text-lg text-[var(--neutral-medium)] leading-relaxed">
+                Desde adolescente fascinado por curar bibliotecas musicales,
+                experimenté con Limewire/Ares, trabajé en Eureka disco tienda,
+                creé -Descubriendo con Chocolate- analizando algoritmos de
+                Spotify por 2 años. Ahora canalizo toda esa experiencia en JAI
+                Sounds.
+              </p>
+            </div>
+
+            {/* Philosophy Quote */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="bg-gradient-light rounded-2xl p-8 border-l-4 border-[var(--primary)]">
+                <Quote className="w-8 h-8 text-[var(--primary)] mb-4" />
+                <blockquote className="text-xl font-medium text-[var(--neutral-dark)] mb-4 italic">
+                  Toda música representa una visión que existe y es válida solo
+                  por el hecho de existir
+                </blockquote>
+                <p className="text-[var(--neutral-medium)]">
+                  Nuestra misión: ser el puente entre tu proyecto y esos sonidos
+                  que el mundo necesita escuchar.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Value Proposition */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <h4 className="text-xl font-bold text-[var(--neutral-dark)] mb-3 font-poppins">
+                Guía Musical que Lleva Identidades Sonoras a Otro Nivel
+              </h4>
+              <p className="text-[var(--neutral-medium)] leading-relaxed">
+                Inspirado en la filosofía de <strong>Rick Rubin</strong>,
+                creemos que la mejor curaduría viene de la escucha profunda y la
+                conexión auténtica con cada sonido.
+              </p>
+            </motion.div>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left: Description */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              <p className="text-lg text-[var(--neutral-dark)] leading-relaxed">
-                {data.description}
-              </p>
+          {/* Achievements Grid */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 gap-6"
+          >
+            {achievements.map((achievement, index) => {
+              const IconComponent = achievement.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 * index }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
+                >
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-portal rounded-xl mb-4">
+                    <IconComponent className="w-6 h-6 text-white" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-[var(--primary)] mb-2 font-poppins">
+                    {achievement.title}
+                  </h4>
+                  <p className="text-sm text-[var(--neutral-medium)] leading-relaxed">
+                    {achievement.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
 
-              {/* Benefits List */}
-              <div className="space-y-6">
-                {data.benefits.map((benefit, index) => {
-                  const IconComponent =
-                    benefitIcons[benefit.title as keyof typeof benefitIcons] ||
-                    CheckCircle;
-
-                  return (
-                    <div key={index} className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-[var(--primary)]/10 rounded-lg flex items-center justify-center">
-                        <IconComponent
-                          size={24}
-                          className="text-[var(--primary)]"
-                        />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-semibold text-[var(--neutral-dark)] mb-2">
-                          {benefit.title}
-                        </h3>
-                        <p className="text-[var(--neutral-medium)]">
-                          {benefit.description}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-100">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-[var(--primary)] mb-1">
-                    98%
-                  </div>
-                  <div className="text-sm text-[var(--neutral-medium)]">
-                    Satisfacción
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-[var(--primary)] mb-1">
-                    50+
-                  </div>
-                  <div className="text-sm text-[var(--neutral-medium)]">
-                    Proyectos
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-[var(--primary)] mb-1">
-                    7
-                  </div>
-                  <div className="text-sm text-[var(--neutral-medium)]">
-                    Días Max
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right: Visual */}
-            <motion.div variants={itemVariants} className="relative">
-              <div className="relative">
-                {/* Main Card */}
-                <div className="bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] rounded-2xl p-8 text-white">
-                  <div className="mb-6">
-                    <h3 className="text-2xl font-bold mb-2">
-                      Nuestro Compromiso
-                    </h3>
-                    <p className="text-white/90">
-                      Páginas web que realmente funcionan
-                    </p>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <CheckCircle size={20} className="text-white" />
-                      <span>Entrega en tiempo garantizada</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <CheckCircle size={20} className="text-white" />
-                      <span>Diseño que convierte visitantes</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <CheckCircle size={20} className="text-white" />
-                      <span>Soporte técnico incluido</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating Elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-[var(--accent)] rounded-xl flex items-center justify-center text-white font-bold text-2xl">
-                  7D
-                </div>
-
-                <div className="absolute -bottom-16 -left-6 bg-white rounded-xl p-4 shadow-lg border border-gray-100">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <CheckCircle size={24} className="text-green-600" />
-                    </div>
-                    <div className="">
-                      <div className="font-semibold text-[var(--neutral-dark)]">
-                        Proyecto Entregado
-                      </div>
-                      <div className=" text-sm text-[var(--neutral-medium)]">
-                        En tiempo récord
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+        {/* Anti-Algorithm Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-20 text-center"
+        >
+          <div className="bg-gradient-to-r from-[var(--primary)]/5 via-[var(--accent)]/5 to-[var(--primary)]/5 rounded-3xl p-8 md:p-12">
+            <h3 className="text-3xl md:text-4xl font-bold text-[var(--neutral-dark)] mb-6 font-poppins">
+              Anti-Algoritmo, Anti-Snob,
+              <br />
+              <span className="text-gradient">Puro Aprecio Musical</span>
+            </h3>
+            <p className="text-xl text-[var(--neutral-medium)] max-w-4xl mx-auto leading-relaxed mb-8">
+              En un mundo saturado de algoritmos que nos encierran en burbujas,
+              JAI Sounds actúa como ese amigo sabio que siempre sabe exactamente
+              qué música necesitas escuchar, incluso cuando tú no lo sabías.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
+              <span className="bg-white text-[var(--primary)] px-4 py-2 rounded-full border border-[var(--primary)]/20">
+                18+ años de experiencia
+              </span>
+              <span className="bg-white text-[var(--primary)] px-4 py-2 rounded-full border border-[var(--primary)]/20">
+                Filosofía anti-establishment
+              </span>
+              <span className="bg-white text-[var(--primary)] px-4 py-2 rounded-full border border-[var(--primary)]/20">
+                Curaduría auténtica
+              </span>
+              <span className="bg-white text-[var(--primary)] px-4 py-2 rounded-full border border-[var(--primary)]/20">
+                Exploración sin límites
+              </span>
+            </div>
           </div>
         </motion.div>
       </div>

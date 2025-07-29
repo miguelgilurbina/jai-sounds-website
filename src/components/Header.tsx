@@ -1,15 +1,12 @@
+// src/components/Header.tsx
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Mail } from "lucide-react";
-import { SiteData } from "@/lib/types";
+import Image from "next/image";
+import Link from "next/link";
+import { Menu, X, Music } from "lucide-react";
 
-interface HeaderProps {
-  data: SiteData["site"] & SiteData["contact"];
-  className?: string;
-}
-
-export default function Header({ data, className = "" }: HeaderProps) {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -22,132 +19,119 @@ export default function Header({ data, className = "" }: HeaderProps) {
   }, []);
 
   const navigation = [
-    { name: "Inicio", href: "#hero" },
-    { name: "Servicios", href: "#services" },
-    { name: "Proceso", href: "#process" },
-    { name: "Precios", href: "#pricing" },
-    { name: "Contacto", href: "#contact" },
+    { label: "Universo", href: "#playlists" },
+    { label: "Proyectos", href: "#portfolio" },
+    { label: "Filosofía", href: "#about" },
+    { label: "Contacto", href: "#contact" },
   ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
     setIsMenuOpen(false);
   };
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100"
+          ? "bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-100"
           : "bg-transparent"
-      } ${className}`}
+      }`}
     >
       <div className="container-custom">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">7D</span>
+          <Link
+            href="#hero"
+            className="flex items-center space-x-3 group"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("#hero");
+            }}
+          >
+            <div className="relative w-16 h-16 md:w-12 md:h-12">
+              <Image
+                src="/jai-logo.png"
+                alt="JAI Sounds"
+                fill
+                className="object-contain transition-transform duration-300 group-hover:scale-110"
+                priority
+              />
             </div>
-            <div>
-              <h1 className="font-bold text-lg text-[var(--neutral-dark)]">
-                {data.name}
+            <div className="hidden sm:block">
+              <h1 className="text-xl md:text-2xl font-bold text-[var(--primary)] font-poppins">
+                JAI Sounds
               </h1>
-              <p className="text-xs text-[var(--neutral-medium)] hidden sm:block">
-                {data.tagline}
+              <p className="text-xs text-[var(--neutral-medium)] -mt-1">
+                Curaduría Musical
               </p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <button
-                key={item.name}
+                key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-[var(--neutral-dark)] hover:text-[var(--primary)] transition-colors duration-200 font-medium"
+                className="text-[var(--neutral-dark)] hover:text-[var(--primary)] font-medium transition-colors duration-300 relative group"
               >
-                {item.name}
+                {item.label}
+                <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-[var(--primary)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
               </button>
             ))}
           </nav>
 
-          {/* Contact Info & CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <div className="flex items-center space-x-3 text-sm">
-              <a
-                href={`tel:${data.phone}`}
-                className="flex items-center space-x-1 text-[var(--neutral-medium)] hover:text-[var(--primary)] transition-colors"
-              >
-                <Phone size={16} />
-                <span>{data.phone}</span>
-              </a>
-              <div className="w-px h-4 bg-gray-300"></div>
-              <a
-                href={`mailto:${data.email}`}
-                className="flex items-center space-x-1 text-[var(--neutral-medium)] hover:text-[var(--primary)] transition-colors"
-              >
-                <Mail size={16} />
-                <span className="hidden xl:inline">Email</span>
-              </a>
-            </div>
+          {/* CTA Desktop */}
+          <div className="hidden md:flex items-center space-x-4">
             <button
               onClick={() => scrollToSection("#contact")}
-              className="btn-primary text-sm px-4 py-2"
+              className="btn-primary flex items-center space-x-2"
             >
-              Solicitar Página
+              <Music className="w-4 h-4" />
+              <span>Consulta Musical</span>
             </button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 text-[var(--neutral-dark)] hover:text-[var(--primary)] transition-colors duration-300"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-gray-100 bg-white/95 backdrop-blur-md">
+          <div className="md:hidden bg-white border-t border-gray-100 py-4">
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <button
-                  key={item.name}
+                  key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left text-[var(--neutral-dark)] hover:text-[var(--primary)] transition-colors duration-200 font-medium py-2"
+                  className="text-[var(--neutral-dark)] hover:text-[var(--primary)] font-medium py-2 text-left transition-colors duration-300"
                 >
-                  {item.name}
+                  {item.label}
                 </button>
               ))}
-              <div className="pt-4 border-t border-gray-100">
-                <div className="flex flex-col space-y-3">
-                  <a
-                    href={`tel:${data.phone}`}
-                    className="flex items-center space-x-2 text-[var(--neutral-medium)]"
-                  >
-                    <Phone size={16} />
-                    <span>{data.phone}</span>
-                  </a>
-                  <a
-                    href={`mailto:${data.email}`}
-                    className="flex items-center space-x-2 text-[var(--neutral-medium)]"
-                  >
-                    <Mail size={16} />
-                    <span>{data.email}</span>
-                  </a>
-                  <button
-                    onClick={() => scrollToSection("#contact")}
-                    className="btn-primary text-sm mt-4 self-start"
-                  >
-                    Solicitar Mi Página Web
-                  </button>
-                </div>
-              </div>
+              <button
+                onClick={() => scrollToSection("#contact")}
+                className="btn-primary flex items-center justify-center space-x-2 mt-4"
+              >
+                <Music className="w-4 h-4" />
+                <span>Consulta Musical</span>
+              </button>
             </nav>
           </div>
         )}

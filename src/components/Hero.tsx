@@ -2,204 +2,173 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Zap, Shield, Clock } from "lucide-react";
-import { HeroProps } from "@/lib/types";
+import Image from "next/image";
+import { ArrowRight, Music2, Radio } from "lucide-react";
 
-export default function Hero({ data, className = "" }: HeroProps) {
+export default function Hero() {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        // ✅ Sin ease - usa default que funciona perfecto
-      },
-    },
-  };
-
-  const featureIcons = {
-    "Entrega garantizada en 7 días hábiles": Clock,
-    "Diseño 100% responsive": Shield,
-    "SEO básico incluido": Zap,
-    "Formulario de contacto funcional": Check,
   };
 
   return (
     <section
       id="hero"
-      className={`bg-gradient-hero relative min-h-screen flex items-center justify-center overflow-hidden ${className}`}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white"
     >
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-primary from-[var(--neutral-light)] via-white to-[var(--neutral-light)]/50"></div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-[var(--primary)]/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-[var(--accent)]/10 rounded-full blur-3xl"></div>
-
-      <div className="relative z-10 container-custom">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Portal Elements */}
         <motion.div
-          className="max-w-6xl mx-auto text-center"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {/* Main Headlines */}
-          <motion.div variants={itemVariants} className="mb-8">
-            <div className="inline-flex items-center px-4 py-2 bg-[var(--accent)]/10 rounded-full text-[var(--accent)] font-medium text-sm mb-6">
-              <Zap size={16} className="mr-2" />
-              Entrega garantizada en 7 días hábiles
+          className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-gradient-portal opacity-10"
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-gradient-space opacity-10"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            rotate: [360, 180, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+
+        {/* Flowing Lines */}
+        <motion.div
+          className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--primary)]/20 to-transparent"
+          animate={{
+            x: ["-100%", "100%"],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+      </div>
+
+      <div className="container-custom relative z-10">
+        <div className="text-center max-w-4xl mx-auto">
+          {/* Logo Principal */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="mb-8"
+          >
+            <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-6">
+              <div className="absolute inset-0 rounded-full bg-gradient-portal opacity-20 portal-animation" />
+              <Image
+                src="/jai-logo.png"
+                alt="JAI Sounds Logo"
+                fill
+                className="object-contain relative z-10"
+                priority
+              />
             </div>
-
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[var(--neutral-dark)] mb-6 leading-tight">
-              {data.headline.split(" ").map((word, index) => {
-                if (word === "7" || word === "Días") {
-                  return (
-                    <span key={index} className="text-gradient">
-                      {word}{" "}
-                    </span>
-                  );
-                }
-                return <span key={index}>{word} </span>;
-              })}
-            </h1>
-
-            <p className="text-xl md:text-2xl text-[var(--neutral-medium)] max-w-4xl mx-auto leading-relaxed">
-              {data.subtitle}
-            </p>
           </motion.div>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold text-[var(--primary)] mb-6 font-poppins"
+          >
+            JAI Sounds
+          </motion.h1>
+
+          {/* Subtitle Poético */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="text-xl md:text-2xl lg:text-3xl text-[var(--neutral-dark)] mb-8 font-light leading-relaxed"
+          >
+            Donde el algoritmo nunca te acercaría,
+            <br />
+            <span className="text-gradient font-medium">
+              nosotros abrimos portales en el tiempo
+            </span>
+          </motion.p>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.7 }}
+            className="text-lg md:text-xl text-[var(--neutral-medium)] mb-12 max-w-2xl mx-auto leading-relaxed"
+          >
+            Curador musical con 18+ años explorando sonidos. Desde Eureka disco
+            tienda hasta proyectos narrativos únicos.
+          </motion.p>
 
           {/* CTAs */}
           <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.9 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <button
-              onClick={() => scrollToSection("#contact")}
-              className="btn-primary text-lg px-8 py-4 flex items-center group"
+              onClick={() => scrollToSection("#playlists")}
+              className="btn-primary flex items-center space-x-3 text-lg px-8 py-4 group"
             >
-              {data.cta_primary}
-              <ArrowRight
-                size={20}
-                className="ml-2 group-hover:translate-x-1 transition-transform"
+              <Radio className="w-5 h-5" />
+              <span>Explora el Universo Sonoro</span>
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </button>
+
+            <button
+              onClick={() => scrollToSection("#about")}
+              className="btn-secondary flex items-center space-x-3 text-lg px-8 py-4"
+            >
+              <Music2 className="w-5 h-5" />
+              <span>Ver Filosofía</span>
+            </button>
+          </motion.div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.2 }}
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          >
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-6 h-10 border-2 border-[var(--primary)]/30 rounded-full flex justify-center"
+            >
+              <motion.div
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="w-1 h-3 bg-[var(--primary)] rounded-full mt-2"
               />
-            </button>
-
-            <button
-              onClick={() => scrollToSection("#services")}
-              className="btn-secondary text-lg px-8 py-4"
-            >
-              {data.cta_secondary}
-            </button>
+            </motion.div>
           </motion.div>
-
-          {/* Features Grid */}
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mb-16"
-          >
-            {data.features.map((feature, index) => {
-              const IconComponent =
-                featureIcons[feature as keyof typeof featureIcons] || Check;
-
-              return (
-                <div
-                  key={index}
-                  className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-[var(--primary)]/30 transition-all duration-300 hover:shadow-lg group"
-                >
-                  <div className="w-12 h-12 bg-[var(--primary)]/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[var(--primary)]/20 transition-colors">
-                    <IconComponent
-                      size={24}
-                      className="text-[var(--primary)]"
-                    />
-                  </div>
-                  <p className="text-[var(--neutral-dark)] font-medium">
-                    {feature}
-                  </p>
-                </div>
-              );
-            })}
-          </motion.div>
-
-          {/* Social Proof / Stats */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-8 text-center"
-          >
-            <div className="flex items-center space-x-2">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] rounded-full border-2 border-white flex items-center justify-center text-white font-medium text-sm"
-                  >
-                    {String.fromCharCode(65 + i)}
-                  </div>
-                ))}
-              </div>
-              <div className="text-left">
-                <p className="text-[var(--neutral-dark)] font-semibold">
-                  50+ Clientes Satisfechos
-                </p>
-                <p className="text-[var(--neutral-medium)] text-sm">
-                  Páginas entregadas en tiempo
-                </p>
-              </div>
-            </div>
-
-            <div className="w-px h-12 bg-gray-300 hidden sm:block"></div>
-
-            <div className="text-center">
-              <p className="text-3xl font-bold text-[var(--primary)]">7 días</p>
-              <p className="text-[var(--neutral-medium)] text-sm">
-                Tiempo promedio
-                <br />
-                de entrega
-              </p>
-            </div>
-
-            <div className="w-px h-12 bg-gray-300 hidden sm:block"></div>
-
-            <div className="text-center">
-              <p className="text-3xl font-bold text-[var(--accent)]">100%</p>
-              <p className="text-[var(--neutral-medium)] text-sm">
-                Clientes satisfechos
-                <br />
-                con el resultado
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <div className="w-6 h-10 border-2 border-[var(--neutral-medium)] rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-[var(--neutral-medium)] rounded-full mt-2"></div>
-        </div>
-      </motion.div>
+      {/* Gradient Overlay Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
     </section>
   );
 }
